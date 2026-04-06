@@ -9,21 +9,24 @@
 
         memory.get() -> fill(0x00);
     };
+
     MainMem::~MainMem(){};
 
     void MainMem::Read(uint32_t startAdd, uint8_t size, uint8_t* dst){
         std::memcpy(dst, &memory.get()->at(startAdd), size);
     };
+
     void MainMem::Write(uint32_t startAdd, uint8_t size, uint8_t* dst){
         std::memcpy(&memory.get()->at(startAdd), dst, size);
     };
+
     void MainMem::Print(){
         const uint32_t rows = 24;
         const uint8_t cols = 12;
 
         for (uint32_t row = 0; row < rows; row++) {
             for (uint8_t col = 0; col < cols; col++) {
-              std::string val = std::format("0x{:x}/t", memory.get()->at(row * cols + col));
+              std::string val = std::format("0x{:x}\t", memory.get()->at(row * cols + col));
 
               std::cout << val;
             }
