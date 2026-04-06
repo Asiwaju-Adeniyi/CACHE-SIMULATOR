@@ -3,10 +3,10 @@
 
 
     void RandomReplacement::SetWays(uint8_t numOfWays){
-
+         ways = numOfWays;
     };
     uint8_t RandomReplacement::GetVictim() const{
-        return 0;
+        return rand() % ways;
     };
 
 
